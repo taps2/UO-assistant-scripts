@@ -1,0 +1,40 @@
+//Bonecut macro by aga
+//Heals pet with bandages while cutting bones
+//Must have dagger in backpack for macro to work
+if not timerexists 'bonebandagetimer'
+  createtimer 'bonebandagetimer'
+  settimer 'bonebandagetimer' 6000
+endif
+if not listexists 'bones'
+  createlist 'bones'
+endif
+if not findalias 'targettoheal'
+  promptalias 'targettoheal'
+endif
+pushlist 'bones' '0xed1'
+pushlist 'bones' '0xecb'
+pushlist 'bones' '0xed0'
+pushlist 'bones' '0xeca'
+pushlist 'bones' '0xecf'
+pushlist 'bones' '0xecd'
+pushlist 'bones' '0xecc'
+pushlist 'bones' '0xecd'
+pushlist 'bones' '0xece'
+pushlist 'bones' '0xed2'
+while not dead 'self'
+  if @findtype 0xe21 'any' 'backpack'
+    if timer 'bonebandagetimer' > 5000
+      bandage 'targettoheal'
+      settimer 'bonebandagetimer' 0
+    endif
+  endif
+  for 0 to 'bones'
+    if @findtype 'bones[]' 'any' 'ground'
+      headmsg 'item found'
+      usetype 0xf52 0x0 'backpack'
+      waitfortarget 500
+      target! 'found'
+      pause 100
+    endif
+  endfor
+endwhile

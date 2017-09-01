@@ -1,0 +1,1198 @@
+clearignorelist
+unsetalias 'Runebook Bag'
+clearjournal
+useobject 'backpack'
+if not findobject 'Escape Book' 'any' 'backpack'
+  unsetalias 'Escape Book'
+endif
+if not findalias 'Escape Book'
+  headmsg 'escape book' 53
+  promptalias 'Escape Book'
+endif
+if listexists 'Runebooks_RDA'
+  headmsg 'Macro did not complete. Starting from last runebook. If you are starting fresh please clear lists in active objects.' 53
+else
+  createlist 'Runebooks_RDA'
+endif
+if not timerexists 'Protect'
+  createtimer 'Protect'
+  settimer 'Protect' 300000
+endif
+if not timerexists 'TrackTimer'
+  createtimer 'TrackTimer'
+  settimer 'TrackTimer' 10000
+endif
+if not timerexists 'emergencyrecall'
+  createtimer 'emergencyrecall'
+  settimer 'emergencyrecall' 25000
+endif
+if not timerexists 'CurepotTimer'
+  createtimer 'CurepotTimer'
+  settimer 'CurepotTimer' 5000
+endif
+if not timerexists 'HealpotTimer'
+  createtimer 'HealpotTimer'
+  settimer 'HealpotTimer' 10000
+endif
+if not timerexists 'RDABandage'
+  createtimer 'RDABandage'
+  settimer 'RDABandage' 16000
+endif
+while @findtype 0x22c5 'any' 'backpack'
+  clickobject 'found'
+  pause 300
+  if @injournal 'RDA' 'system'
+    pushlist 'Runebooks_RDA' 'found'
+    clearjournal
+  endif
+  pause 300
+  ignoreobject 'found'
+endwhile
+if not findalias 'Restock Container'
+  headmsg 'Select your restock container' 53
+  promptalias 'Restock Container'
+endif
+if not findalias 'housesign'
+  headmsg 'Target your house sign to your emergency recall spot' 53
+  promptalias 'housesign'
+endif
+if not listexists 'Runes'
+  createlist 'Runes'
+endif
+if not listexists 'Runes1'
+  createlist 'Runes1'
+endif
+clearlist 'Runebook Counter'
+if not listexists 'Runebook Counter'
+  createlist 'Runebook Counter'
+endif
+if not listexists 'rune iteration'
+  createlist 'rune iteration'
+endif
+if list 'Runebooks_RDA' == 25
+  headmsg '25 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+  pushlist 'Runebook Counter' 15
+  pushlist 'Runebook Counter' 16
+  pushlist 'Runebook Counter' 17
+  pushlist 'Runebook Counter' 18
+  pushlist 'Runebook Counter' 19
+  pushlist 'Runebook Counter' 20
+  pushlist 'Runebook Counter' 21
+  pushlist 'Runebook Counter' 22
+  pushlist 'Runebook Counter' 23
+  pushlist 'Runebook Counter' 24
+  pushlist 'Runebook Counter' 25
+endif
+if list 'Runebooks_RDA' == 24
+  headmsg '24 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+  pushlist 'Runebook Counter' 15
+  pushlist 'Runebook Counter' 16
+  pushlist 'Runebook Counter' 17
+  pushlist 'Runebook Counter' 18
+  pushlist 'Runebook Counter' 19
+  pushlist 'Runebook Counter' 20
+  pushlist 'Runebook Counter' 21
+  pushlist 'Runebook Counter' 22
+  pushlist 'Runebook Counter' 23
+  pushlist 'Runebook Counter' 24
+endif
+if list 'Runebooks_RDA' == 23
+  headmsg '23 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+  pushlist 'Runebook Counter' 15
+  pushlist 'Runebook Counter' 16
+  pushlist 'Runebook Counter' 17
+  pushlist 'Runebook Counter' 18
+  pushlist 'Runebook Counter' 19
+  pushlist 'Runebook Counter' 20
+  pushlist 'Runebook Counter' 21
+  pushlist 'Runebook Counter' 22
+  pushlist 'Runebook Counter' 23
+endif
+if list 'Runebooks_RDA' == 22
+  headmsg '22 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+  pushlist 'Runebook Counter' 15
+  pushlist 'Runebook Counter' 16
+  pushlist 'Runebook Counter' 17
+  pushlist 'Runebook Counter' 18
+  pushlist 'Runebook Counter' 19
+  pushlist 'Runebook Counter' 20
+  pushlist 'Runebook Counter' 21
+  pushlist 'Runebook Counter' 22
+endif
+if list 'Runebooks_RDA' == 21
+  headmsg '21 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+  pushlist 'Runebook Counter' 15
+  pushlist 'Runebook Counter' 16
+  pushlist 'Runebook Counter' 17
+  pushlist 'Runebook Counter' 18
+  pushlist 'Runebook Counter' 19
+  pushlist 'Runebook Counter' 20
+  pushlist 'Runebook Counter' 21
+endif
+if list 'Runebooks_RDA' == 20
+  headmsg '20 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+  pushlist 'Runebook Counter' 15
+  pushlist 'Runebook Counter' 16
+  pushlist 'Runebook Counter' 17
+  pushlist 'Runebook Counter' 18
+  pushlist 'Runebook Counter' 19
+  pushlist 'Runebook Counter' 20
+endif
+if list 'Runebooks_RDA' == 19
+  headmsg '19 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+  pushlist 'Runebook Counter' 15
+  pushlist 'Runebook Counter' 16
+  pushlist 'Runebook Counter' 17
+  pushlist 'Runebook Counter' 18
+  pushlist 'Runebook Counter' 19
+endif
+if list 'Runebooks_RDA' == 18
+  headmsg '18 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+  pushlist 'Runebook Counter' 15
+  pushlist 'Runebook Counter' 16
+  pushlist 'Runebook Counter' 17
+  pushlist 'Runebook Counter' 18
+endif
+if list 'Runebooks_RDA' == 17
+  headmsg '17 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+  pushlist 'Runebook Counter' 15
+  pushlist 'Runebook Counter' 16
+  pushlist 'Runebook Counter' 17
+endif
+if list 'Runebooks_RDA' == 16
+  headmsg '16 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+  pushlist 'Runebook Counter' 15
+  pushlist 'Runebook Counter' 16
+endif
+if list 'Runebooks_RDA' == 15
+  headmsg '15 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+  pushlist 'Runebook Counter' 15
+endif
+if list 'Runebooks_RDA' == 14
+  headmsg '14 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+  pushlist 'Runebook Counter' 14
+endif
+if list 'Runebooks_RDA' == 13
+  headmsg '13 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+  pushlist 'Runebook Counter' 13
+endif
+if list 'Runebooks_RDA' == 12
+  headmsg '12 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+  pushlist 'Runebook Counter' 12
+endif
+if list 'Runebooks_RDA' == 11
+  headmsg '11 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+  pushlist 'Runebook Counter' 11
+endif
+if list 'Runebooks_RDA' == 10
+  headmsg '10 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+  pushlist 'Runebook Counter' 10
+endif
+if list 'Runebooks_RDA' == 9
+  headmsg '9 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+  pushlist 'Runebook Counter' 9
+endif
+if list 'Runebooks_RDA' == 8
+  headmsg '8 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+  pushlist 'Runebook Counter' 8
+endif
+if list 'Runebooks_RDA' == 7
+  headmsg '7 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+  pushlist 'Runebook Counter' 7
+endif
+if list 'Runebooks_RDA' == 6
+  headmsg '6 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+  pushlist 'Runebook Counter' 6
+endif
+if list 'Runebooks_RDA' == 5
+  headmsg '5 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+  pushlist 'Runebook Counter' 5
+endif
+if list 'Runebooks_RDA' == 4
+  headmsg '4 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+  pushlist 'Runebook Counter' 4
+endif
+if list 'Runebooks_RDA' == 3
+  headmsg '3 total runebooks added'
+  pushlist 'Runebook Counter' 1
+  pushlist 'Runebook Counter' 2
+  pushlist 'Runebook Counter' 3
+endif
+if not @findobject 'housesign'
+  pause 500
+  cast 'recall'
+  @autotargetobject 'Escape Book'
+  pause 1800
+endif
+@cleartargetqueue
+while hits < maxhits
+  if timer 'RDABandage' > 16000
+    headmsg 'healing self'
+    usetype 0xe21 'backpack'
+    autotargetself
+    settimer 'RDABandage' 0
+  endif
+endwhile
+waitforcontext 'self' 2 500
+pause 800
+useobject 'Restock Container'
+organizer 'Restock1' 'Restock Container' 'backpack'
+while organizing
+  pause 500
+endwhile
+clearjournal
+for 0 to 'Runebooks_RDA'
+  if list 'Runes' == 0
+    pushlist 'Runes' 5
+    pushlist 'Runes' 11
+    pushlist 'Runes' 17
+    pushlist 'Runes' 23
+    pushlist 'Runes' 29
+    pushlist 'Runes' 35
+    pushlist 'Runes' 41
+    pushlist 'Runes' 47
+    pushlist 'Runes' 53
+    pushlist 'Runes' 59
+    pushlist 'Runes' 65
+    pushlist 'Runes' 71
+    pushlist 'Runes' 77
+    pushlist 'Runes' 83
+    pushlist 'Runes' 89
+    pushlist 'Runes' 95
+    pushlist 'rune iteration' 1
+    pushlist 'rune iteration' 2
+    pushlist 'rune iteration' 3
+    pushlist 'rune iteration' 4
+    pushlist 'rune iteration' 5
+    pushlist 'rune iteration' 6
+    pushlist 'rune iteration' 7
+    pushlist 'rune iteration' 8
+    pushlist 'rune iteration' 9
+    pushlist 'rune iteration' 10
+    pushlist 'rune iteration' 11
+    pushlist 'rune iteration' 12
+    pushlist 'rune iteration' 13
+    pushlist 'rune iteration' 14
+    pushlist 'rune iteration' 15
+    pushlist 'rune iteration' 16
+    pushlist 'Runes1' 4
+    pushlist 'Runes1' 10
+    pushlist 'Runes1' 16
+    pushlist 'Runes1' 22
+    pushlist 'Runes1' 28
+    pushlist 'Runes1' 34
+    pushlist 'Runes1' 40
+    pushlist 'Runes1' 46
+    pushlist 'Runes1' 52
+    pushlist 'Runes1' 58
+    pushlist 'Runes1' 64
+    pushlist 'Runes1' 70
+    pushlist 'Runes1' 76
+    pushlist 'Runes1' 82
+    pushlist 'Runes1' 88
+    pushlist 'Runes1' 94
+  endif
+  @replygump 0x554b87f3 0
+  @replygump 0x554b87f3 0
+  if @counttype 0xf7a 'any' 'backpack' <= 30
+    while not @findobject 'housesign'
+      pause 100
+      cast 'recall'
+      @autotargetobject 'Escape Book'
+      pause 100
+    endwhile
+    @cleartargetqueue
+    useobject 'Restock Container'
+    pause 500
+    organizer 'Restock1' 'Restock Container' 'backpack'
+    while organizing
+      pause 500
+    endwhile
+  endif
+  if @counttype 0xf86 'any' 'backpack' <= 30
+    while not @findobject 'housesign'
+      pause 100
+      cast 'recall'
+      @autotargetobject 'Escape Book'
+      pause 100
+    endwhile
+    @cleartargetqueue
+    useobject 'Restock Container'
+    pause 500
+    organizer 'Restock1' 'Restock Container' 'backpack'
+    while organizing
+      pause 500
+    endwhile
+  endif
+  if @counttype 0xf7b 'any' 'backpack' <= 30
+    while not @findobject 'housesign'
+      pause 100
+      cast 'recall'
+      @autotargetobject 'Escape Book'
+      pause 100
+    endwhile
+    @cleartargetqueue
+    useobject 'Restock Container'
+    pause 500
+    organizer 'Restock1' 'Restock Container' 'backpack'
+    while organizing
+      pause 500
+    endwhile
+  endif
+  for 0 to 'Runes'
+    clearjournal
+    if hits < maxhits or poisoned 'self'
+      if poisoned 'self' and timer 'CurepotTimer' > 5000
+        msg '[drink greatercurepotion'
+        pause 500
+        settimer 'CurepotTimer' 0
+      endif
+      if diffhits > 10
+        if timer 'RDABandage' > 16000
+          headmsg 'Healing self'
+          usetype 0xe21 'backpack'
+          autotargetself
+          settimer 'RDABandage' 0
+        endif
+      endif
+      if diffhits > 30
+        if poisoned 'self' and timer 'CurepotTimer' > 5000
+          msg '[drink greatercurepotion'
+          pause 500
+          settimer 'CurepotTimer' 0
+        endif
+        if not poisoned 'self' and timer 'HealpotTimer' > 10000
+          headmsg 'Drinking heal potion'
+          msg '[drink greaterhealpotion'
+          pause 500
+          settimer 'HealpotTimer' 0
+        endif
+        if poisoned 'self' and timer 'CurepotTimer' < 5000
+          headmsg 'Recalling home to heal'
+          while not @findobject 'housesign'
+            pause 100
+            cast 'recall'
+            @autotargetobject 'Escape Book'
+            pause 100
+          endwhile
+          @cleartargetqueue
+          while hits < maxhits
+            if timer 'RDABandage' > 16000
+              headmsg 'healing self'
+              usetype 0xe21 'backpack'
+              autotargetself
+              settimer 'RDABandage' 0
+            endif
+          endwhile
+          if @counttype 0xf7a 'any' 'backpack' <= 30
+            while not @findobject 'housesign'
+              pause 100
+              cast 'recall'
+              @autotargetobject 'Escape Book'
+              pause 100
+            endwhile
+            @cleartargetqueue
+            useobject 'Restock Container'
+            pause 500
+            organizer 'Restock1' 'Restock Container' 'backpack'
+            while organizing
+              pause 500
+            endwhile
+          endif
+          if @counttype 0xf86 'any' 'backpack' <= 30
+            while not @findobject 'housesign'
+              pause 100
+              cast 'recall'
+              @autotargetobject 'Escape Book'
+              pause 100
+            endwhile
+            @cleartargetqueue
+            useobject 'Restock Container'
+            pause 500
+            organizer 'Restock1' 'Restock Container' 'backpack'
+            while organizing
+              pause 500
+            endwhile
+          endif
+          if @counttype 0xf7b 'any' 'backpack' <= 30
+            while not @findobject 'housesign'
+              pause 100
+              cast 'recall'
+              @autotargetobject 'Escape Book'
+              pause 100
+            endwhile
+            @cleartargetqueue
+            useobject 'Restock Container'
+            pause 500
+            organizer 'Restock1' 'Restock Container' 'backpack'
+            while organizing
+              pause 500
+            endwhile
+          endif
+        endif
+        if not poisoned 'self' and timer 'HealpotTimer' < 10000
+          headmsg 'Recalling home to heal'
+          while not @findobject 'housesign'
+            pause 100
+            cast 'recall'
+            @autotargetobject 'Escape Book'
+            pause 100
+          endwhile
+          @cleartargetqueue
+          while hits < maxhits
+            if timer 'RDABandage' > 16000
+              headmsg 'healing self'
+              usetype 0xe21 'backpack'
+              autotargetself
+              settimer 'RDABandage' 0
+            endif
+          endwhile
+          if @counttype 0xf7a 'any' 'backpack' <= 30
+            while not @findobject 'housesign'
+              pause 100
+              cast 'recall'
+              @autotargetobject 'Escape Book'
+              pause 100
+            endwhile
+            @cleartargetqueue
+            useobject 'Restock Container'
+            pause 500
+            organizer 'Restock1' 'Restock Container' 'backpack'
+            while organizing
+              pause 500
+            endwhile
+          endif
+          if @counttype 0xf86 'any' 'backpack' <= 30
+            while not @findobject 'housesign'
+              pause 100
+              cast 'recall'
+              @autotargetobject 'Escape Book'
+              pause 100
+            endwhile
+            @cleartargetqueue
+            useobject 'Restock Container'
+            pause 500
+            organizer 'Restock1' 'Restock Container' 'backpack'
+            while organizing
+              pause 500
+            endwhile
+          endif
+          if @counttype 0xf7b 'any' 'backpack' <= 30
+            while not @findobject 'housesign'
+              pause 100
+              cast 'recall'
+              @autotargetobject 'Escape Book'
+              pause 100
+            endwhile
+            @cleartargetqueue
+            useobject 'Restock Container'
+            pause 500
+            organizer 'Restock1' 'Restock Container' 'backpack'
+            while organizing
+              pause 500
+            endwhile
+          endif
+        endif
+      endif
+    endif
+    if timer 'Protect' >= 300000
+      cast 'Protection'
+      pause 1500
+      while @injournal 'concentration' 'system'
+        headmsg 'Disrupted... Recasting'
+        clearjournal
+        if hits < maxhits or poisoned 'self'
+          if poisoned 'self' and timer 'CurepotTimer' > 5000
+            msg '[drink greatercurepotion'
+            pause 500
+            settimer 'CurepotTimer' 0
+          endif
+          if diffhits > 10
+            if timer 'RDABandage' > 16000
+              headmsg 'Healing self'
+              usetype 0xe21 'backpack'
+              autotargetself
+              settimer 'RDABandage' 0
+            endif
+          endif
+          if diffhits > 30
+            if poisoned 'self' and timer 'CurepotTimer' > 5000
+              msg '[drink greatercurepotion'
+              pause 500
+              settimer 'CurepotTimer' 0
+            endif
+            if not poisoned 'self' and timer 'HealpotTimer' > 10000
+              headmsg 'Drinking heal potion'
+              msg '[drink greaterhealpotion'
+              pause 500
+              settimer 'HealpotTimer' 0
+            endif
+            if poisoned 'self' and timer 'CurepotTimer' < 5000
+              headmsg 'Recalling home to heal'
+              while not @findobject 'housesign'
+                pause 100
+                cast 'recall'
+                @autotargetobject 'Escape Book'
+                pause 100
+              endwhile
+              @cleartargetqueue
+              while hits < maxhits
+                if timer 'RDABandage' > 16000
+                  headmsg 'healing self'
+                  usetype 0xe21 'backpack'
+                  autotargetself
+                  settimer 'RDABandage' 0
+                endif
+              endwhile
+              if @counttype 0xf7a 'any' 'backpack' <= 30
+                while not @findobject 'housesign'
+                  pause 100
+                  cast 'recall'
+                  @autotargetobject 'Escape Book'
+                  pause 100
+                endwhile
+                @cleartargetqueue
+                useobject 'Restock Container'
+                pause 500
+                organizer 'Restock1' 'Restock Container' 'backpack'
+                while organizing
+                  pause 500
+                endwhile
+              endif
+              if @counttype 0xf86 'any' 'backpack' <= 30
+                while not @findobject 'housesign'
+                  pause 100
+                  cast 'recall'
+                  @autotargetobject 'Escape Book'
+                  pause 100
+                endwhile
+                @cleartargetqueue
+                useobject 'Restock Container'
+                pause 500
+                organizer 'Restock1' 'Restock Container' 'backpack'
+                while organizing
+                  pause 500
+                endwhile
+              endif
+              if @counttype 0xf7b 'any' 'backpack' <= 30
+                while not @findobject 'housesign'
+                  pause 100
+                  cast 'recall'
+                  @autotargetobject 'Escape Book'
+                  pause 100
+                endwhile
+                @cleartargetqueue
+                useobject 'Restock Container'
+                pause 500
+                organizer 'Restock1' 'Restock Container' 'backpack'
+                while organizing
+                  pause 500
+                endwhile
+              endif
+            endif
+            if not poisoned 'self' and timer 'HealpotTimer' < 10000
+              headmsg 'Recalling home to heal'
+              while not @findobject 'housesign'
+                pause 100
+                cast 'recall'
+                @autotargetobject 'Escape Book'
+                pause 100
+              endwhile
+              @cleartargetqueue
+              while hits < maxhits
+                if timer 'RDABandage' > 16000
+                  headmsg 'healing self'
+                  usetype 0xe21 'backpack'
+                  autotargetself
+                  settimer 'RDABandage' 0
+                endif
+              endwhile
+              if @counttype 0xf7a 'any' 'backpack' <= 30
+                while not @findobject 'housesign'
+                  pause 100
+                  cast 'recall'
+                  @autotargetobject 'Escape Book'
+                  pause 100
+                endwhile
+                @cleartargetqueue
+                useobject 'Restock Container'
+                pause 500
+                organizer 'Restock1' 'Restock Container' 'backpack'
+                while organizing
+                  pause 500
+                endwhile
+              endif
+              if @counttype 0xf86 'any' 'backpack' <= 30
+                while not @findobject 'housesign'
+                  pause 100
+                  cast 'recall'
+                  @autotargetobject 'Escape Book'
+                  pause 100
+                endwhile
+                @cleartargetqueue
+                useobject 'Restock Container'
+                pause 500
+                organizer 'Restock1' 'Restock Container' 'backpack'
+                while organizing
+                  pause 500
+                endwhile
+              endif
+              if @counttype 0xf7b 'any' 'backpack' <= 30
+                while not @findobject 'housesign'
+                  pause 100
+                  cast 'recall'
+                  @autotargetobject 'Escape Book'
+                  pause 100
+                endwhile
+                @cleartargetqueue
+                useobject 'Restock Container'
+                pause 500
+                organizer 'Restock1' 'Restock Container' 'backpack'
+                while organizing
+                  pause 500
+                endwhile
+              endif
+            endif
+          endif
+        endif
+        cast 'Protection'
+        pause 1500
+      endwhile
+      settimer 'Protect' 0
+    endif
+    clearjournal
+    //while not @injournal 'New default location set.' 'system'
+    while not @gumpexists 0x554b87f3
+      useobject! Runebooks_RDA[0]
+    endwhile
+    @replygump 0x554b87f3 Runes1[0]
+    pause 100
+    //endwhile
+    @cleartargetqueue
+    @canceltarget
+    sysmsg 'Finished rune'
+    sysmsg 'rune iteration[0]'
+    sysmsg 'of runebook number'
+    sysmsg 'Runebook Counter[0]'
+    if list 'Runebooks_RDA' == 25
+      sysmsg '25 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 24
+      sysmsg '24 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 23
+      sysmsg '23 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 22
+      sysmsg '22 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 21
+      sysmsg '21 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 20
+      sysmsg '20 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 19
+      sysmsg '19 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 18
+      sysmsg '18 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 17
+      sysmsg '17 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 16
+      sysmsg '16 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 15
+      sysmsg '15 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 14
+      sysmsg '14 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 13
+      sysmsg '13 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 12
+      sysmsg '12 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 11
+      sysmsg '11 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 10
+      sysmsg '10 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 9
+      sysmsg '9 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 8
+      sysmsg '8 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 7
+      sysmsg '7 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 6
+      sysmsg '6 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 5
+      sysmsg '5 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 4
+      sysmsg '4 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 3
+      sysmsg '3 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 2
+      sysmsg '2 total runebooks left'
+    endif
+    if list 'Runebooks_RDA' == 1
+      sysmsg '1 runebook left!'
+    endif
+    @poplist 'Runes' 'front'
+    @poplist 'Runes1' 'front'
+    @poplist 'rune iteration' 'front'
+    while not @injournal 'What do you wish to track?' 'system'
+      if @injournal 'The world is saving, please wait.' 'system'
+        clearjournal
+        sysmsg 'Pausing macro for Server Save'
+        waitforjournal 'World save complete' 165000 'system'
+        sysmsg 'Resuming macro'
+      endif
+      if timer 'TrackTimer' < 10000
+        if hits < maxhits or poisoned 'self'
+          if poisoned 'self' and timer 'CurepotTimer' > 5000
+            msg '[drink greatercurepotion'
+            pause 500
+            settimer 'CurepotTimer' 0
+          endif
+          if diffhits > 10
+            if timer 'RDABandage' > 16000
+              headmsg 'Healing self'
+              usetype 0xe21 'backpack'
+              autotargetself
+              settimer 'RDABandage' 0
+            endif
+          endif
+          if diffhits > 30
+            if poisoned 'self' and timer 'CurepotTimer' > 5000
+              msg '[drink greatercurepotion'
+              pause 500
+              settimer 'CurepotTimer' 0
+            endif
+            if not poisoned 'self' and timer 'HealpotTimer' > 10000
+              headmsg 'Drinking heal potion'
+              msg '[drink greaterhealpotion'
+              pause 500
+              settimer 'HealpotTimer' 0
+            endif
+            if poisoned 'self' and timer 'CurepotTimer' < 5000
+              if timer 'emergencyrecall' > 16000
+                headmsg 'Health low. Recalling to next rune.'
+                while not @targetexists 'any'
+                  cast 'recall'
+                endwhile
+                if @targetexists 'any'
+                  target! Runebooks_RDA[0]
+                endif
+                settimer 'emergencyrecall' 0
+              endif
+            endif
+            if not poisoned 'self' and timer 'HealpotTimer' < 10000
+              if timer 'emergencyrecall' > 16000
+                headmsg 'Health low. Recalling to next rune.'
+                while not @targetexists 'any'
+                  cast 'recall'
+                endwhile
+                if @targetexists 'any'
+                  target! Runebooks_RDA[0]
+                endif
+                settimer 'emergencyrecall' 0
+              endif
+            endif
+          endif
+        endif
+        while not @targetexists 'any'
+          cast 'recall'
+        endwhile
+      endif
+      if timer 'TrackTimer' > 10000
+        @cleartargetqueue
+        while not @targetexists 'any'
+          cast 'recall'
+        endwhile
+        if @targetexists 'any'
+          target! Runebooks_RDA[0]
+        endif
+        pause 100
+        while not @gumpexists 0xb16e7d71
+          useskill 'Tracking'
+        endwhile
+        @replygump 0xb16e7d71 4
+        settimer 'TrackTimer' 0
+        pause 500
+        if @findtype 0xf6c 1161 'ground' 1 16
+          playsound 'ALERT.WAV'
+          guildmsg 'found it!'
+          pause 500
+          partymsg 'found it!'
+          pause 500
+          headmsg 'found it!'
+          clearlist 'Runebooks_RDA'
+          clearlist 'Runes'
+          clearlist 'Runes1'
+          clearlist 'rune iteration'
+          clearlist 'Runebook Counter'
+          stop
+        endif
+        if hits < maxhits or poisoned 'self'
+          if poisoned 'self' and timer 'CurepotTimer' > 5000
+            msg '[drink greatercurepotion'
+            pause 500
+            settimer 'CurepotTimer' 0
+          endif
+          if diffhits > 10
+            if timer 'RDABandage' > 16000
+              headmsg 'Healing self'
+              usetype 0xe21 'backpack'
+              autotargetself
+              settimer 'RDABandage' 0
+            endif
+          endif
+          if diffhits > 30
+            if poisoned 'self' and timer 'CurepotTimer' > 5000
+              msg '[drink greatercurepotion'
+              pause 500
+              settimer 'CurepotTimer' 0
+            endif
+            if not poisoned 'self' and timer 'HealpotTimer' > 10000
+              headmsg 'Drinking heal potion'
+              msg '[drink greaterhealpotion'
+              pause 500
+              settimer 'HealpotTimer' 0
+            endif
+            if poisoned 'self' and timer 'CurepotTimer' < 5000
+              if timer 'emergencyrecall' > 16000
+                headmsg 'Health low. Recalling to next rune.'
+                while not @targetexists 'any'
+                  cast 'recall'
+                endwhile
+                if @targetexists 'any'
+                  target! Runebooks_RDA[0]
+                endif
+                settimer 'emergencyrecall' 0
+              endif
+            endif
+            if not poisoned 'self' and timer 'HealpotTimer' < 10000
+              if timer 'emergencyrecall' > 16000
+                headmsg 'Health low. Recalling to next rune.'
+                while not @targetexists 'any'
+                  cast 'recall'
+                endwhile
+                if @targetexists 'any'
+                  target! Runebooks_RDA[0]
+                endif
+                settimer 'emergencyrecall' 0
+              endif
+            endif
+          endif
+        endif
+        if mana < 12
+          headmsg 'Recalling home to meditate'
+          while not @findobject 'housesign'
+            cast 'recall'
+            @autotargetobject 'Escape Book'
+          endwhile
+          @cleartargetqueue
+          if @counttype 0xf7a 'any' 'backpack' <= 30
+            useobject 'Restock Container'
+            pause 500
+            organizer 'Restock1' 'Restock Container' 'backpack'
+            while organizing
+              pause 500
+            endwhile
+          endif
+          if @counttype 0xf86 'any' 'backpack' <= 30
+            useobject 'Restock Container'
+            organizer 'Restock1' 'Restock Container' 'backpack'
+            while organizing
+              pause 500
+            endwhile
+          endif
+          if @counttype 0xf7b 'any' 'backpack' <= 30
+            useobject 'Restock Container'
+            organizer 'Restock1' 'Restock Container' 'backpack'
+            while organizing
+              pause 500
+            endwhile
+          endif
+          while mana < maxmana
+            headmsg 'meditating to full'
+            useskill 'Meditation'
+            pause 500
+          endwhile
+        endif
+      endif
+    endwhile
+  endfor
+  @replygump 0x554b87f3 0
+  @replygump 0x554b87f3 0
+  sysmsg 'Finished runebook number'
+  sysmsg 'Runebook Counter[0]'
+  @poplist  'Runebooks_RDA' 'front'
+  @poplist  'Runebook Counter' 'front'
+  clearjournal
+endfor
+while not @findobject 'housesign'
+  cast 'recall'
+  @autotargetobject 'Escape Book'
+endwhile
+@cleartargetqueue
+clearlist 'Runebooks_RDA'
+clearlist 'Runes'
+clearlist 'Runes1'
+clearlist 'rune iteration'
+clearlist 'Runebook Counter'
+headmsg 'Finished all books'
